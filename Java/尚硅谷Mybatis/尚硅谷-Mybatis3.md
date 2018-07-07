@@ -163,3 +163,4 @@ settings的设置项非常多，多数的值（value）为true或false的类型�
     <setting name="mapUnderscoreToCamelCase" value="true"/>
   </settings>
 ```
+#### typeAliases 
