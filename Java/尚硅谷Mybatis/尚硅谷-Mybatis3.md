@@ -36,7 +36,7 @@
 项目引入 *mybatis* 和 *mysql-connector-java* 的jar包  
 
 ----
-## old方式
+## old方式(直接执行xml)
 
 1. 创建 *mybatis-config.xml* 配置文件，该文件在项目中为 *全局配置文件*   
 
@@ -105,7 +105,7 @@
    ```
 **selectOne** 第一个参数为SQL语句的唯一标识，第二个参数为需要传入的参数值
 
-## new方式
+## new方式(接口映射mapper)
 
 使用SQL映射接口的方式执行SQL语句，将SQL语句转化为java的方法，约束参数的类型，方便方法调用。
 
@@ -259,3 +259,18 @@ mybatis已经为java常用的一些类指定好了别名，因此使用别名是
   </databaseIdProvider>
 ```
 在 *mapper.xml* 文件中，通过 **databaseId** 属性指定一个数据库产商的标识。
+## mappers SQL映射注册器
+通过 **mapper** 子标签或 **package** 子标签注册SQL映射文件，注册
+### mapper 标签
+注册一个接口或者mapper.xml的SQL映射文件，包括 **resource**、**url** 和 **class** 三个属性.
+* resource：加载类路径下的mapper资源
+* url：加载网络或者硬盘的mapper资源，本地资源采用 *file:///var/.../mapper.xml* 的形式
+* class：接口的全类名，注册映射接口，mybatis允许将SQL语句以注解的形式，与接口的方法绑定起来；或者将mapper文件与其映射接口放在同一目录下则可以不使用注解
+
+### package 子标签
+注册一整个包下的所有接口，但要求类与mapper.xml文件 **同包名** ，只有一个 **name** 属性。
+* name：指定包名。
+
+## 注意
+mybatis-config.xml文件中，各种标签的配置是有顺序的，顺序大致如下：
+> properties--settings--typeAliases--environments--mappers
