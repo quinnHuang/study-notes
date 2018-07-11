@@ -2,8 +2,8 @@
 --------
 ## 1.配置
 配置全局用户名和邮箱
->
-git config **--global** user.name "quinn"
+>   
+git config **--global** user.name "quinn"  
 git config **--global** user.email "quinn@oocl.com"
 
 查看所有配置信息
@@ -11,6 +11,9 @@ git config **--global** user.email "quinn@oocl.com"
 
 查看某个配置项
 > git config **user.name**
+
+忽略文件  
+> 在项目目录下直接新建 `.gitignore` 文件，里面编写要忽略的文件名、扩展名、路径等即可。
 
 ------
 ## 2.初始化仓库
@@ -32,3 +35,12 @@ git commit -m "提交的说明信息"
 
 克隆时指定本地仓库的名称
 > git clone "**https://github.com/Akigaze/GluttonousSnake.git**" "**myreponame**"
+
+## 3.免密操作
+### https方式
+克隆仓库时配置用户的密码  
+> https://**user**:**password**@github.com/Akigaze/musicbox.git
+
+查看远程url并设置用户密码
+> git remote -v #可以查看目前的url  
+git remote set-url origin https://**user**:**password** @github.com/Akigaze/musicbox.git
