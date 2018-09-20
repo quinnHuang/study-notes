@@ -44,3 +44,18 @@ git commit -m "提交的说明信息"
 查看远程url并设置用户密码
 > git remote -v #可以查看目前的url  
 git remote set-url origin https://**user**:**password** @github.com/Akigaze/musicbox.git
+
+## 4.分支合并
+### 4.1 rebase命令
+更改当前分支的根节点，实现分支的合并，相当于提交的迁移
+> git rebase **branch-name**
+
+在不指定提交的情况下，默认将当前分支的所有提交都合并到新的节点上  
+**解决冲突**：  
+1. 当某个提交迁移到新的节点上出现冲突时，就需要解决冲突
+2. `git add .`，在解决完之后，存储修改
+3. 使用`continue`参数继续执行下一个提交的rebase操作
+> git rebase --continue
+
+4. 使用`abort`参数终止rebase的操作，还原当前分支
+> git rebase --abort
