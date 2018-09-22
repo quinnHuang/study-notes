@@ -38,6 +38,9 @@
 ## 查看对象的数据类型
 1. mode()
 
+## 统计变量的行数和列数
+* `nrow(x)`
+* `ncol(x)`
 ---
 
 # 向量
@@ -205,3 +208,46 @@
 
 ## 结构转换
 不同数据结构(矩阵，数组，列表等)之间的转换，也存在`is`和`as`两种对结构进行判断和转换的方式
+
+# 分支结构
+## if...else...
+不支持向量化操作  
+```
+if(bool condition){
+    ...
+}else{
+    ...
+}
+```
+## ifelse()
+`ifelse(test, yes, no)`
+支持向量化操作
+* test：判断条件，支持向量化
+* yes：test为TRUE的返回值
+* no：test为FALSE的返回值
+
+# 循环结构
+## for
+```
+for(n in x){
+    ...
+}
+```
+
+## while
+```
+while(condition){
+    ...
+}
+```
+
+## repeat
+死循环结构，没有循环条件
+```
+repeat{
+    ...
+}
+```
+## break-next
+* break
+* next：相当于 `continue`
