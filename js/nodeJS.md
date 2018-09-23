@@ -3,6 +3,7 @@
 * url
 * events
 * util
+* fs
 
 
 # 导出模块
@@ -114,3 +115,29 @@ util.inherits(Person,events.EventEmitter);
 ### scripts
 记录项目执行的相关命令，初始包括`start`, `test`命令。使用`run`可以执行命令。
 > npm run **cmd**
+
+# 文件操作
+## fs模块
+1. 同步读写
+    * 读：`readFileSync("filePath","code-set")`
+    * 写：`writeFileSync("filePath","content")`
+
+```javascript
+const fs = require("fs");
+let read = fs.readFileSync("./hello.txt","utf8");
+fs.writeFileSync("./nodejs.txt","This is Node JS.");
+```
+
+2. 异步读写
+    * 读：`readFile("filePath","code-set",(err,data)=>{})`
+    * 写：`writeFile("filePath","content",()=>{})`
+
+```javascript
+const fs = require("fs");
+fs.readFile("./hello.txt","utf8",(err,data)=>{
+    console.log("read complete!");
+    fs.writeFile("./nodejs.txt","This is Node JS file.",()=>{
+        console.log("write complete!");
+    })
+});
+```
