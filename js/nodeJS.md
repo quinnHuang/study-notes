@@ -90,3 +90,27 @@ let Person = function(name){
 };
 util.inherits(Person,events.EventEmitter);
 ```
+
+# npm
+## 下载安装模块
+> npm install **moduleName**
+
+使用`-g`选项可以为安装的模块设置全局的命令
+> npm install -g **moduleName**
+
+## package.json
+用于记录项目中的依赖包，方便项目导出和重新添加依赖  
+### 初始化package.json
+> npm init
+
+然后一路回车即可
+### dependencies和devDependencies
+`dependencies`是记录项目的所有依赖，使用`--save`参数可以在安装依赖时将依赖记录到`dependencies`的值中。
+> npm install --save **moduleName**
+
+`devDependencies`是记录开发环境的依赖，使用`--save-dev`可以记录依赖
+> npm install --save-dev **moduleName**
+
+### scripts
+记录项目执行的相关命令，初始包括`start`, `test`命令。使用`run`可以执行命令。
+> npm run **cmd**
