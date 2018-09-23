@@ -1,3 +1,10 @@
+# 内置模块
+* http
+* url
+* events
+* util
+
+
 # 导出模块
 ## module.exports
 1. 以对象形式导出  
@@ -46,4 +53,40 @@ var greet = require('./hello');
 2. ES6的导入方式
 ```javascript
 import App from './App';
+```
+
+# 全局变量
+* console：控制台
+* setTimeout：定时器
+* setInterval：重复定时器
+* clearInterval：清除定时  
+* \_\_dirname：当前目录
+* \_\_filename：当前文件
+......
+
+# 事件机制
+**相关模块**：`events`, `util`  
+1. 创建事件对象
+```javascript
+let e1 = new events.EventEmitter();
+```
+
+2. 注册事件和行为
+```javascript
+e1.on("eventName", function(eventParameter){});
+```
+
+3. 触发事件
+```javascript
+e1.emit("eventName",eventParameter);
+```
+4. 使用`util`实现时间继承
+`util` 模块的`inherits(subClass,superClass)` 方法可实现类或对象之间的继承  
+```javascript
+const events = require("events");
+const util = require("util");
+let Person = function(name){
+    this.name=name;
+};
+util.inherits(Person,events.EventEmitter);
 ```
