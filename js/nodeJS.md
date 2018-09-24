@@ -32,9 +32,10 @@ exports.hello = hello;
 exports.greet = greet;
 ```
 2. ES6的导出方式  
+变量的`导出-声明-赋值`必须同时完成
 ```javascript
-export let a = 1;
-export function incCounter() {
+export const a = 1;
+export const incCounter = function() {
     counter ++;
 }
 ```
@@ -55,6 +56,10 @@ var greet = require('./hello');
 ```javascript
 import App from './App';
 ```
+
+* 导入多个函数时，可以用`{func1,func2}`的形式导入多个函数
+* 导入和导出的函数名称必须一致
+* 导入的文件路径必须以`./`开头
 
 # 全局变量
 * console：控制台
