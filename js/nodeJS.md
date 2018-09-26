@@ -39,11 +39,12 @@ export const incCounter = function() {
     counter ++;
 }
 ```
-`default`关键字，用于匿名变量的导出
+`default`关键字，用于匿名变量的导出，类的导出也要用`default`
 ```javascript
 export default { x: 1 };
 export default function() {};
 ```
+
 
 # 导入模块
 ## require
@@ -56,10 +57,16 @@ var greet = require('./hello');
 ```javascript
 import App from './App';
 ```
-
 * 导入多个函数时，可以用`{func1,func2}`的形式导入多个函数
 * 导入和导出的函数名称必须一致
 * 导入的文件路径必须以`./`开头
+
+3. 名称空间
+使用`* as`给一个模块的多个函数起一个共同的名称空间，避免不同模块之间函数同名的冲突，此时函数名称要用`*`代替
+```javascript
+import * as math from './math.js';
+```
+
 
 # 全局变量
 * console：控制台

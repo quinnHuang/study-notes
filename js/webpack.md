@@ -32,3 +32,17 @@ module.exports = {
     watch:true
 };
 ```
+
+## 配置babel
+babel主要用于JS文件打包时的语法翻译，可将ES版本高的代码翻译成低版本的代码，以兼容IE等浏览器  
+**相关依赖**：`babel=-core`, `babel-loader`, `babel-preset-env`
+> npm install --save-dev babel-core
+npm install --save-dev babel-loader
+npm install --save-dev babel-preset-env
+
+## webpack-dev-server配置虚拟服务
+更改启动项目的方式  
+> webpack-dev-server --content-base **根路径** --port **端口**
+
+在`webpack.config.js`的`output`参数中添加一项：
+> publicPath:**自定义虚拟路径**
