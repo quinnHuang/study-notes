@@ -113,4 +113,37 @@ let result = arr.reduce((previousReturn,current,currentIndex) => {})
 
 * previousReturn:表示上一次return的结果，默认初始值是数组的第一个元素
 * current:当前的值，从数组的第二个元素开始
-* currentIndex:当前元素的下标，从1开始 
+* currentIndex:当前元素的下标，从1开始
+
+# ES6 - 字符串新方法
+1. startsWith(subStr)
+2. endsWith(subStr)
+
+# ES6 - 字符串模板
+```javascript
+let name = "xiaoming";
+let age = 18;
+
+let introduce = `I am ${name}.
+I am ${age} years old.`
+```
+
+* 使用反单引号(**\`**)包含字符串，使用`${}`直接在字符串中引入变量
+* 支持字符串折行，而不用输入`\n`
+
+# ES6 - 面向对象
+ES6开始支持`class`关键字
+```javascript
+class Person {
+    constructor(name,age) {
+        this.name=name;
+        this.age=age;
+    }
+    sayHelloTo(friend){
+        return `Hello, ${friend.name}.`;
+    }
+    sayBye(){
+        return `Good Bye!`;
+    }
+}
+```
