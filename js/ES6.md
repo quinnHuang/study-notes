@@ -70,3 +70,47 @@ let run = (speed = 10, time = 10) => {
 ```
 
 1. 支持函数定义时使用等号对参数进行默认值的赋值
+
+# ES6 - 解构
+1. 解构主要用于变量的赋值
+2. 解构表达式等号两边的结构必须一样，`[]=[]`,`{}={}`
+3. 解构的变量声明和赋值必须在一个表达式完成
+4. 解构将右边变量对应位置的值赋值给左边的变量
+
+## 数组解构
+```javascript
+let [a, b] = [12, "ab"];
+let [json, arr, num] = [ {name:"xiaoming", age:18}, ["a", "b"], 100];
+```
+
+## 对象解构
+```javascript
+let {name, age} = {name:"xaioming", age:18};
+```
+
+1. 对象解构时左边的变量名必须和右边对象的`key`相同
+2. 实际上是这样解构的：通过左右两边相同的`key`将`value`进行赋值
+```javascript
+let {name:myName, age:myAge} = {name:"xaioming", age:18}；
+```
+3. 当右边的`key`和`value`是同一个变量名时，可以简写一个
+
+## 数组-对象混用
+```javascript
+let [{name, age}, [cn, en], json, arr] = [
+    {name:"xaioming", age:18},
+    [100, 89],
+    {a:1, b:2},
+    [1, 2, 3]
+]
+```
+
+# ES6 - 数组
+## reduce
+```javascript
+let result = arr.reduce((previousReturn,current,currentIndex) => {})
+```
+
+* previousReturn:表示上一次return的结果，默认初始值是数组的第一个元素
+* current:当前的值，从数组的第二个元素开始
+* currentIndex:当前元素的下标，从1开始 
