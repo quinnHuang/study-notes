@@ -52,7 +52,8 @@
 3. 剩余参数必须放在参数列表的最后一个
 4. 剩余参数又成可变参数、参数扩展
 
-# ES6 - 数组展开
+# ES6 - ...
+## 数组展开
 ```javascript
 let arr = [1,2,'a',true];
 console.log(...arr);
@@ -61,6 +62,13 @@ console.log(...arr);
 1. 使用`...`表示将数组展开，去掉方括号，将值一个个取出
 2. 可以与函数参数`console.log(...arr)`，也可以用于数组赋值`let arr3 = [...arr1,...arr2]`等
 3. 不能直接用在等于号后面
+
+## 对象展开
+```javascript
+let p1 = {name:"xaioming", age:18};
+let p2 = {...p1}
+```
+不论是对象展开还是数组展开，都是对数据的深拷贝
 
 # ES6 - 默认参数
 ```javascript
@@ -162,4 +170,35 @@ class Student extends Person {
         return `Hello, Mr. ${teacher.name}`;
     }
 }
+```
+
+# ES6 - json
+## 标准json写法
+1. 只能使用双引号
+2. 所有`key`要用双引号包裹起来
+
+```javascript
+let json={"name":"xioaming","age":12}
+```
+
+## JSON内置对象
+* **JSON.stringify(obj)**: 将一个json对象转换为字符串，该json对象可以不是标准json
+* **JSON.parse(str)**: 将一个标准json对象的字符串转换成json对象
+
+## json简写
+1. 当`key`与`value`的变量名相同时，可以只写一个
+```javascript
+let name="xiaoming";
+let age=18;
+let p1={name,age};
+```
+
+2. 当`value`是函数时，可以省略`:functiin`
+```javascript
+let json = {
+    run(speed){
+        return `Speed is ${speed}km/h`;
+    }
+}
+json.run(10);
 ```
