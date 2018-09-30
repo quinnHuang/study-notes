@@ -132,7 +132,7 @@ I am ${age} years old.`
 * 支持字符串折行，而不用输入`\n`
 
 # ES6 - 面向对象
-ES6开始支持`class`关键字
+## class 关键字
 ```javascript
 class Person {
     constructor(name,age) {
@@ -144,6 +144,22 @@ class Person {
     }
     sayBye(){
         return `Good Bye!`;
+    }
+}
+```
+
+## extends 继承
+```javascript
+class Student extends Person {
+    constructor(name, age, major) {
+        super(name,age);
+        this.major=major;
+    }
+    study(){
+        return `I am studying ${this.major}`;
+    }
+    sayHelloTo(teacher){
+        return `Hello, Mr. ${teacher.name}`;
     }
 }
 ```
