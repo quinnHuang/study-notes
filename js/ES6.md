@@ -202,3 +202,41 @@ let json = {
 }
 json.run(10);
 ```
+
+# ES6 - Promise
+Promise是ES6的内置对象，用于处理异步请求
+1. 创建Promise对象，构造方法接受哟个函数，函数有两个参数，`resolve`请求成功的函数，`reject`请求失败的函数，同时在函数中发送Ajax请求
+```javascript
+let pro1 = new new Promise((resolve, reject)=> {
+    //Ajax请求
+});
+```
+2. 使用Promise对象的`then(resolveFun,rejectFun)`方法，为Promise对象传递`resolve`和`reject`参数，同时发送请求
+```javascript
+pro1.then(
+    (resolveParam)=>{},
+    (rejectParam)=>{}
+)
+```
+3. 使用Promise内置对象的`all(promiseArr)`函数，接收多个Promise对象，再用`then`函数执行，而`then`传递的参数是所有请求结果的数组，而只有所有Promise请求都成功才会执行`resolve`函数
+```javascript
+Promise.all([pro1,pro2]).then(
+    (resolveParams)=>{},
+    (rejectParams)=>{}
+)
+```
+4. `race`函数，与`all`相似，但只要有一个成功就执行`resolve`函数
+5. Jquery中的`$.ajax()`函数的返回值就是一个Promise对象
+6. 使用方式
+```javascript
+createPromise=(path)=>{
+    new Promise(...)
+}
+Promise.all([
+    createPromise(path1),
+    createPromise(path2),
+    ...]).then(
+    (results) => {},
+    (err) => {}
+)
+```
